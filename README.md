@@ -68,7 +68,7 @@ tunnel or with the same 5 tuple.
 Running
 
 ```bash
-python fattree_ecmp_sim.py --k 8 --flows_success 500 --flows_failure 500
+python fattree_ecmp_sim.py --k 8 --flows_success 500 --flows_failure 500```
 
 produces two main plots:
 	1.	plots/ecmp_success_link_loads.png
