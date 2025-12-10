@@ -101,7 +101,7 @@ Most importantly, this congestion occurs even though the fat-tree provides more 
 
 This experiment provides a clear and direct demonstration that fat-tree topologies alone do not guarantee high throughput. When ECMP operates on low-entropy traffic patterns, it can degenerate into effectively single-path routing, producing severe congestion and complete underutilization of the remaining network capacity.
 
-### why ECMP fails in Scenario B?
+### Why ECMP fails in Scenario B?
 
 ECMP relies on a static hash over the flow's 5 tuple to select one of several equal cost
 paths. This works well only when the hash input has high entropy and many different
