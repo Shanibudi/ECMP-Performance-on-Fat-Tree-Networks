@@ -72,12 +72,14 @@ python fattree_ecmp_sim.py --k 8 --flows_success 500 --flows_failure 500
 ```
 
 produces two main plots:
+
 	1.	plots/ecmp_success_link_loads.png
+	
 	2.	plots/ecmp_failure_link_loads.png
 
 Each plot shows the sorted link loads (number of flows per link) in the network.
 
-Scenario A  ECMP success
+ #### Scenario A  ECMP success
 
 In ecmp_success_link_loads.png the curve of sorted link loads is relatively flat.
 The maximum link load is close to the average link load, and there are no extreme
@@ -85,7 +87,7 @@ outliers. This indicates that ECMP distributes flows fairly evenly across the ma
 equal cost paths in the fat tree. The available bisection bandwidth is utilized
 efficiently and no particular link becomes a strong bottleneck.
 
-Scenario B  ECMP failure
+#### Scenario B  ECMP failure
 
 In ecmp_failure_link_loads.png the sorted link load curve has a long tail.
 A small number of links carry a very large number of flows, while many other links
@@ -95,10 +97,7 @@ static hashing forces many flows to share the same path. Several links are overl
 while others are underutilized, even though the total available capacity in the
 network is sufficient to carry the offered load.
 
-### 2.4 Explanation: why ECMP fails in Scenario B
-
-```markdown
-### Why ECMP fails in Scenario B
+### why ECMP fails in Scenario B?
 
 ECMP relies on a static hash over the flow's 5 tuple to select one of several equal cost
 paths. This works well only when the hash input has high entropy and many different
