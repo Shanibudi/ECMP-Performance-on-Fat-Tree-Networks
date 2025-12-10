@@ -81,21 +81,25 @@ Each plot shows the sorted link loads (number of flows per link) in the network.
 
  #### Scenario A  ECMP success
 
-In ecmp_success_link_loads.png the curve of sorted link loads is relatively flat.
-The maximum link load is close to the average link load, and there are no extreme
-outliers. This indicates that ECMP distributes flows fairly evenly across the many
-equal cost paths in the fat tree. The available bisection bandwidth is utilized
-efficiently and no particular link becomes a strong bottleneck.
+In ecmp_success_link_loads.png, the sorted link loads exhibit a gradual decrease from moderately loaded links to lightly loaded links, rather than a perfectly flat distribution.
+The maximum link load is clearly higher than the average link load, indicating that some links carry more flows than others. However, the load decreases smoothly and continuously across the link indices, without sharp spikes or isolated extreme outliers.
+
+This behavior indicates that ECMP achieves partial but not perfect load balancing.
+The traffic is spread across many equal cost paths, preventing a single catastrophic bottleneck, but due to the randomness of hashing and the limited number of flows, some statistical imbalance naturally remains. Importantly, no single link dominates the traffic by an order of magnitude, and the network still utilizes a large fraction of its bisection bandwidth efficiently.
+
+Therefore, Scenario A represents a practical success case for ECMP under high entropy traffic, where load imbalance exists but remains bounded and moderate, and no severe congestion hotspots are formed.
 
 #### Scenario B  ECMP failure
 
-In ecmp_failure_link_loads.png the sorted link load curve has a long tail.
-A small number of links carry a very large number of flows, while many other links
-carry very little traffic. This is clear evidence of blocking caused only by the
-routing algorithm. The underlying fat tree is still non blocking in theory, but
-static hashing forces many flows to share the same path. Several links are overloaded
-while others are underutilized, even though the total available capacity in the
-network is sufficient to carry the offered load.
+IIn ecmp_failure_link_loads.png, the sorted link loads reveal an extreme and absolute traffic concentration.
+Only a very small number of links (six links in this experiment) carry all 500 flows, while all remaining links in the network carry zero traffic. The bars in the plot reach the full traffic demand simultaneously, indicating that the same overloaded path is used by every single flow.
+
+This behavior represents a complete collapse of ECMP load balancing.
+Because all 500 flows share the exact same hash key (identical source and destination), the static ECMP mechanism maps all flows to one single shortest path, despite the existence of many alternative equal-cost paths in the fat-tree topology. As a result, every link along this single path becomes fully congested, while the rest of the fabric remains entirely idle.
+
+Most importantly, this congestion occurs even though the fat-tree provides more than enough aggregate capacity to support the traffic demand. The observed blocking is therefore not caused by insufficient network resources, but purely by the static nature of the ECMP hashing mechanism and the lack of traffic awareness in the routing decision.
+
+This experiment provides a clear and direct demonstration that fat-tree topologies alone do not guarantee high throughput. When ECMP operates on low-entropy traffic patterns, it can degenerate into effectively single-path routing, producing severe congestion and complete underutilization of the remaining network capacity.
 
 ### why ECMP fails in Scenario B?
 
