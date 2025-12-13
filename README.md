@@ -16,7 +16,8 @@ when traffic entropy is low.
 ## How to Run
 
 Clone the repository and run: 
-	```python python fattree_ecmp_sim.py
+	```python
+	python fattree_ecmp_sim.py
 
 The script uses a fixed Fat-Tree with k = 4 and a fixed random seed for reproducibility.
 
@@ -78,7 +79,7 @@ ECMP routing is implemented as follows:
    networkx.all_shortest_paths
 
 2.	A single path is selected using a static hash over the flow’s 5-tuple:
-
+	```python
    idx = hash(flow_key) % number_of_paths
 
 This models real ECMP behavior, where all packets belonging to the same flow are routed on the
