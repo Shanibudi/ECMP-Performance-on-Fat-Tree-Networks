@@ -23,16 +23,7 @@ python fattree_ecmp_sim.py
 
 The script uses a fixed random seed for reproducibility.
 
-After execution, the following figures will be generated in the ```plots/``` directory:
-
-
-• scenario_a_balanced.png
-
-• scenario_a_topology_load.png
-
-• scenario_b_unbalanced.png
-
-• scenario_b_topology_load.png
+After execution, all figures will be generated in the ```plots/``` directory.
 
 
 ## Topology
