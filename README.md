@@ -82,14 +82,12 @@ All traffic in both scenarios is exchanged between this same pair of hosts.
 Fixing the communicating hosts isolates the effect of ECMP hashing and avoids averaging effects
 that would mask congestion.
 
-## Scenario A – ECMP Success (High Entropy)
+## Scenario A – ECMP Success
 
 # Parameters
 	•	Number of flows: 4
-	•	Flow types:
-	•	4 mice flows
-	•	Traffic pattern:
-	•	All flows use distinct 5-tuples (random ports)
+	•	Flow types: 4 mice flows
+	•	Traffic pattern: All flows use distinct 5-tuples (random ports)
 	•	ECMP entropy: high
 
 # Expected Behavior
@@ -104,16 +102,13 @@ paths. The load is spread relatively evenly, and no single link becomes a bottle
 
 This scenario represents a successful use of ECMP under high-entropy traffic.
 
-## Scenario B – ECMP Failure (Low Entropy with Elephant Flows)
+## Scenario B – ECMP Failure
 
 # Parameters
 	•	Number of flows: 4
-	•	Flow types:
-	•	2 elephant flows
-	•	2 mice flows
+	•	Flow types: 2 elephant flows (red) + 2 mice flows(blue)
 	•	Elephant flow size: 20× mice flow
-	•	Traffic pattern:
-	•	All flows communicate between the same (src, dst) pair
+	•	Traffic pattern: All flows communicate between the same (src, dst) pair
 	•	ECMP entropy: low
 
 # Hash Collision
@@ -136,8 +131,7 @@ This collision is discovered automatically by the code and is not hard-coded.
 
 # Why ECMP Fails
 
-ECMP is congestion-oblivious. It relies solely on static hashing and does not adapt to
-link utilization.
+ECMP is congestion-oblivious. It relies solely on static hashing and does not adapt to link utilization.
 
 When traffic entropy is low, or when large elephant flows collide in the hash space, ECMP can
 degenerate into effectively single-path routing. The Fat-Tree topology itself provides ample
