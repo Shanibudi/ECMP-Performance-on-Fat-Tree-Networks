@@ -9,7 +9,7 @@ Although Fat-Tree topologies offer full bisection bandwidth in theory, the actua
 performance is dictated by the routing mechanism. ECMP relies on static hashing to distribute
 flows across equal-cost paths, without considering real-time link utilization.
 
-The goal of this project is to demonstrate empirically that **static hashing is not perfect**.
+The goal of this project is to demonstrate empirically that static hashing is not perfect.
 Even in a non-blocking Fat-Tree topology, ECMP alone can cause severe congestion and blocking
 when traffic entropy is low.
 
