@@ -84,8 +84,8 @@ ECMP routing is implemented as follows:
    networkx.all_shortest_paths
 
 2.	A single path is selected using a static hash over the flow’s 5-tuple:
-	```python
-   idx = hash(flow_key) % number_of_paths
+	```python 
+	idx = hash(flow_key) % number_of_paths
 
 This models real ECMP behavior, where all packets belonging to the same flow are routed on the
 same path to prevent packet reordering.
