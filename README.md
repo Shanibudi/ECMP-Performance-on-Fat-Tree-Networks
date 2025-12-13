@@ -112,19 +112,21 @@ paths. The load is spread relatively evenly, and no single link becomes a bottle
 ### Evidence:
 
 File: scenario_a_balanced.png
+<img width="2400" height="1500" alt="scenario_a_balanced" src="https://github.com/user-attachments/assets/6eb0ce8b-4cbd-4997-a944-682cfe9370a5" />
 
-• The bar chart shows total load per link (sorted)
-• Loads are small and spread across many links
-• Sorted link-load plot shows moderate and smoothly decreasing loads
-• No sharp spikes or dominant links
+
+	• The bar chart shows total load per link (sorted)
+	• Loads are small and spread across many links
+	• Sorted link-load plot shows moderate and smoothly decreasing loads
+	• No sharp spikes or dominant links
 
 This indicates successful load balancing
 
 File: scenario_a_topology_load.png
 
-• Blue links represent mice traffic
-• Line width corresponds to load
-• Traffic is distributed across multiple core and aggregation paths
+	• Blue links represent mice traffic
+	• Line width corresponds to load
+	• Traffic is distributed across multiple core and aggregation paths
 
 ECMP behaves as intended under high-entropy traffic.
 
@@ -152,18 +154,18 @@ This collision is discovered automatically by the code and is not hard-coded.
 ### Evidence
 
 File: scenario_b_unbalanced.png
-• Sorted link-load plot shows extreme load concentration
-• A small number of links carry ~40 units of traffic
-• Most links carry almost no load
-• Clear separation between overloaded and idle links
+	• Sorted link-load plot shows extreme load concentration
+	• A small number of links carry ~40 units of traffic
+	• Most links carry almost no load
+	• Clear separation between overloaded and idle links
 
 Severe congestion appears despite enough aggregate capacity.
 
 File: scenario_b_topology_load.png
 
-• Topology visualization clearly highlights a single thick red path represent elephant traffic
-• Very thick links highlight congestion
-• Blue (mice) traffic is negligible in comparison
+	• Topology visualization clearly highlights a single thick red path represent elephant traffic
+	• Very thick links highlight congestion
+	• Blue (mice) traffic is negligible in comparison
 
 One ECMP path is saturated while parallel paths remain underutilized.
 
