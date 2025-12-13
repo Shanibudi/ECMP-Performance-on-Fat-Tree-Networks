@@ -34,7 +34,6 @@ After execution, the following figures will be generated in the ```plots/``` dir
 
 • scenario_b_topology_load.png
 
----
 
 ## Topology
 
@@ -50,7 +49,6 @@ The topology consists of four types of nodes:
 The network is modeled as an undirected graph using NetworkX. For any pair of hosts, multiple
 equal-cost shortest paths exist, ensuring full bisection bandwidth in theory.
 
----
 
 ## Modeling Traffic, Flows, and Hashing
 
