@@ -143,10 +143,7 @@ ECMP behaves as intended under high-entropy traffic.
 
 ### Hash Collision
 
-The two elephant flows have different 5-tuples, but due to the finite number of ECMP paths,
-their hash values collide and map to the same ECMP path.
-
-This collision is discovered automatically by the code and is not hard-coded.
+The collision is discovered automatically by generating random flow 5-tuples until two distinct flows are mapped by the ECMP hash function to the same equal-cost path. No specific path or hash outcome is hard-coded in the experiment.
 
 ### Observed Behavior
 	•	Both elephant flows are routed over the same physical path
