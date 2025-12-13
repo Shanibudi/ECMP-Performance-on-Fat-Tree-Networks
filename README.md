@@ -15,7 +15,11 @@ when traffic entropy is low.
 
 ## How to Run
 
-Clone the repository and run: ```bash python fattree_ecmp_sim.py
+Clone the repository and run:
+
+```bash
+python fattree_ecmp_sim.py
+```
 
 The script uses a fixed Fat-Tree with k = 4 and a fixed random seed for reproducibility.
 
