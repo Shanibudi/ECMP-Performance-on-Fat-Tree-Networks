@@ -61,7 +61,7 @@ Each flow is defined by a simplified 5-tuple:
 
 (source host, destination host, source port, destination port, protocol)
 
-#### Flow Types
+### Flow Types
 
 Two types of flows are modeled:
 Mice flows:
