@@ -63,7 +63,8 @@ Each flow is defined by a simplified 5-tuple:
 
 ### Flow Types
 
-Two types of flows are modeled:
+Two types of flows are modeled-
+
 Mice flows:
   - Small, short-lived flows
   - Contribute a unit load of `1` to each link along their path
