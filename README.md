@@ -157,7 +157,7 @@ File: scenario_b_unbalanced.png
 
 	• Sorted link-load plot shows extreme load concentration
 	• A small number of links carry ~40 units of traffic
-	• Most links carry almost no load
+	• Most links carry almost no load (unutilized links don't appear in this plot)
 	• Clear separation between overloaded and idle links
 
 Severe congestion appears despite enough aggregate capacity.
