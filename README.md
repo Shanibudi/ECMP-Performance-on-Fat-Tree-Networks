@@ -16,8 +16,8 @@ when traffic entropy is low.
 ## How to Run
 
 Clone the repository and run:
-```python
-python fattree_ecmp_sim.py
+	```python
+	python fattree_ecmp_sim.py
 
 The script uses a fixed Fat-Tree with k = 4 and a fixed random seed for reproducibility.
 
@@ -57,15 +57,14 @@ Each flow is defined by a simplified 5-tuple:
 
 (source host, destination host, source port, destination port, protocol)
 
-# Flow Types
+#### Flow Types
 
 Two types of flows are modeled:
-
-- Mice flows:
+Mice flows:
   - Small, short-lived flows
   - Contribute a unit load of `1` to each link along their path
 
-- Elephant flows:
+Elephant flows:
   - Large, long-lived flows
   - Contribute a load of `20` to each link along their path
 
@@ -97,18 +96,18 @@ that would mask congestion.
 
 ## Scenario A – ECMP Success
 
-# Parameters
+### Parameters
 	•	Number of flows: 4
 	•	Flow types: 4 mice flows
 	•	Traffic pattern: All flows use distinct 5-tuples (random ports)
 	•	ECMP entropy: high
 
-# Expected Behavior
+### Expected Behavior
 
 Because each flow has a different hash key, ECMP distributes flows across multiple equal-cost
 paths. The load is spread relatively evenly, and no single link becomes a bottleneck.
 
-# Evidence:
+### Evidence:
 
 File: scenario_a_balanced.png
 
@@ -127,32 +126,28 @@ File: scenario_a_topology_load.png
 
 ECMP behaves as intended under high-entropy traffic.
 
-#conclusion
-
-This scenario represents a successful use of ECMP under high-entropy traffic.
-
 ## Scenario B – ECMP Failure
 
-# Parameters
+### Parameters
 	•	Number of flows: 4
 	•	Flow types: 2 elephant flows (red) + 2 mice flows(blue)
 	•	Elephant flow size: 20× mice flow
 	•	Traffic pattern: All flows communicate between the same (src, dst) pair
 	•	ECMP entropy: low
 
-# Hash Collision
+### Hash Collision
 
 The two elephant flows have different 5-tuples, but due to the finite number of ECMP paths,
 their hash values collide and map to the same ECMP path.
 
 This collision is discovered automatically by the code and is not hard-coded.
 
-# Observed Behavior
+### Observed Behavior
 	•	Both elephant flows are routed over the same physical path
 	•	Links on that path become heavily overloaded
 	•	Parallel equal-cost paths remain underutilized
 
-# Evidence
+### Evidence
 
 File: scenario_b_unbalanced.png
 • Sorted link-load plot shows extreme load concentration
@@ -170,7 +165,7 @@ File: scenario_b_topology_load.png
 
 One ECMP path is saturated while parallel paths remain underutilized.
 
-# Why ECMP Fails
+## Why ECMP Fails
 
 ECMP is congestion-oblivious. It relies solely on static hashing and does not adapt to link utilization.
 
