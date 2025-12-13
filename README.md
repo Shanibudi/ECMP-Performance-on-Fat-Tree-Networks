@@ -96,9 +96,6 @@ same path to prevent packet reordering.
 A single, fixed pair of hosts (src, dst) is chosen randomly at the beginning of the experiment.
 All traffic in both scenarios is exchanged between this same pair of hosts.
 
-Fixing the communicating hosts isolates the effect of ECMP hashing and avoids averaging effects
-that would mask congestion.
-
 ## Scenario A – ECMP Success
 
 ### Parameters
