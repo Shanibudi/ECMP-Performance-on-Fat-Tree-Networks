@@ -37,22 +37,22 @@ equal-cost shortest paths exist, ensuring full bisection bandwidth in theory.
 
 ### Flows
 
-Traffic is modeled at the **flow level**, rather than packet level. This abstraction is sufficient
+Traffic is modeled at the flow level, rather than packet level. This abstraction is sufficient
 to demonstrate ECMP behavior, since ECMP decisions are made per flow.
 
-Each flow is defined by a simplified **5-tuple**:
+Each flow is defined by a simplified 5-tuple:
 
 (source host, destination host, source port, destination port, protocol)
 
-### Flow Types
+# Flow Types
 
 Two types of flows are modeled:
 
-- **Mice flows**:
+- Mice flows:
   - Small, short-lived flows
   - Contribute a unit load of `1` to each link along their path
 
-- **Elephant flows**:
+- Elephant flows:
   - Large, long-lived flows
   - Contribute a load of `20` to each link along their path
 
