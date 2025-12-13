@@ -23,11 +23,15 @@ python fattree_ecmp_sim.py
 
 The script uses a fixed Fat-Tree with k = 4 and a fixed random seed for reproducibility.
 
-After execution, the following figures will be generated in the plots/ directory:
+After execution, the following figures will be generated in the ```python plots/``` directory:
+
 
 • scenario_a_balanced.png
+
 • scenario_a_topology_load.png
+
 • scenario_b_unbalanced.png
+
 • scenario_b_topology_load.png
 
 ---
