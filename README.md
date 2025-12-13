@@ -123,6 +123,8 @@ File: scenario_a_balanced.png
 This indicates successful load balancing
 
 File: scenario_a_topology_load.png
+<img width="3600" height="2100" alt="scenario_a_topology_load" src="https://github.com/user-attachments/assets/79c90b6f-399c-432f-93a6-291befec23e1" />
+
 
 	• Blue links represent mice traffic
 	• Line width corresponds to load
@@ -154,6 +156,8 @@ This collision is discovered automatically by the code and is not hard-coded.
 ### Evidence
 
 File: scenario_b_unbalanced.png
+<img width="2400" height="1500" alt="scenario_b_unbalanced" src="https://github.com/user-attachments/assets/6925252b-7ed7-4ef5-a65c-40417d67d2c4" />
+
 	• Sorted link-load plot shows extreme load concentration
 	• A small number of links carry ~40 units of traffic
 	• Most links carry almost no load
@@ -162,6 +166,7 @@ File: scenario_b_unbalanced.png
 Severe congestion appears despite enough aggregate capacity.
 
 File: scenario_b_topology_load.png
+<img width="3600" height="2100" alt="scenario_b_topology_load" src="https://github.com/user-attachments/assets/6c0e02db-7000-42af-93d7-94febf597ef2" />
 
 	• Topology visualization clearly highlights a single thick red path represent elephant traffic
 	• Very thick links highlight congestion
